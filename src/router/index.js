@@ -6,6 +6,7 @@ import CreateMeetups from '@/components/Meetup/CreateMeetups'
 import Profile from '@/components/User/Profile'
 import SignIn from '@/components/User/SignIn'
 import SignUp from '@/components/User/SignUp'
+import Meetup from '@/components/Meetup/Meetup'
 
 Vue.use(Router)
 
@@ -25,6 +26,11 @@ export default new Router({
       path: '/meetup/new',
       name: 'CreateMeetup',
       component: CreateMeetups
+    },
+    {
+      path: '/meetups/:id',
+      name: 'Meetup',
+      component: Meetup
     },
     {
       path: '/signup',
