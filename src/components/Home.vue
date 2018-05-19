@@ -16,11 +16,12 @@
         </v-layout>
         <v-layout row wrap class="mt-2" >
             <v-flex xs12  sm10 md8 offset-sm1 offset-md2>
-                <v-carousel>
+                <v-carousel style="cursor: pointer;">
                     <v-carousel-item
                     v-for="meetup in meetups"
                     :src="meetup.imageUrl"
-                    :key="meetup.id">
+                    :key="meetup.id"
+                    @click.native.stop="onLoadMeetup(meetup.id)">
                     <div class="title">
                         {{ meetup.title }}
                     </div>
@@ -39,14 +40,17 @@
 
 <script>
 export default {
-    data () {
-        return{
-            meetups: [
-                {imageUrl: 'https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200', id: '123123123123', title: 'Meetup in New York'},
-                {imageUrl: 'https://cdn3.i-scmp.com/sites/default/files/styles/2000x792/public/images/methode/2017/09/28/936dd694-9f60-11e7-9b91-f74e36ea6345_4000x1584_010803.JPG?itok=NNeLcPfc', id: '123123123123', title: 'Meetup in New York'},             
-            ]
+    computed: {
+        meetups () {
+            return this.$store.getters.featuredMeetups
         }
-    }}
+    },
+    methods: {
+        onLoadMeetup (id) {
+            this.$router.push('/meetups/'+id)
+        }
+    }
+}
 </script>
 <style scoped>
     .title{
@@ -56,6 +60,8 @@ export default {
         color:white;
         font-size: 2em;
         padding:30px;
+        left:10px;
+        border-radius:3px;
     }
 </style>
 

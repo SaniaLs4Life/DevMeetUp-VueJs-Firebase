@@ -1,6 +1,12 @@
 <template>
     <v-container>
         <v-layout row wrap>
+            <v-flex xs12 class="text-xs-center">
+                <h1>Meetups</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse omnis nostrum blanditiis odio accusantium. Laborum, ullam nihil dicta consectetur velit officiis dignissimos nemo, hic ducimus tempora excepturi eaque vel expedita tenetur unde nisi ea provident illum soluta! Quibusdam aliquam eaque quis eligendi consectetur. Alias cupiditate nisi exercitationem minus aliquam fugit!</p>
+            </v-flex>
+        </v-layout> 
+        <v-layout row wrap>
             <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
                 <v-card class="error">
                     <v-container fluid>
@@ -18,7 +24,7 @@
                                     </div>
                                 </v-card-title>
                                 <v-card-actions>
-                                    <v-btn flat to="/meetups/1">
+                                    <v-btn outline class="normal" flat to="/meetups/1">
                                         <v-icon left light>arrow_forward</v-icon>
                                         View Meetup
                                     </v-btn>
